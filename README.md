@@ -1,50 +1,17 @@
-# Welcome to your Expo app 👋
+## 물건 찍으면 기내 반입 금지 물품 알려주는 서비스
++ app
+1. 사진찍거나 앨범에서 업로드
+2. base64Image 형태로 이미지 전송
+3. 서버에서 라벨과 메시지 던져주면 출력
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+#### 스택
 
-## Get started
-
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+| 분야             | 사용 기술                                     |
+|------------------|-----------------------------------------------|
+| **앱 프레임워크** | React Native                                  |
+| **런타임 환경**   | Expo                                           |
+| **언어**          | JavaScript                                     |
+| **라우팅**        | expo-router (Tabs 기반)                      |
+| **이미지 처리**   | expo-image-picker (갤러리, 카메라)            |
+| **API 통신**      | Axios (`POST` 방식, base64 이미지 전송)        |
+| **기기 테스트**   | 실기기(USB or QR 코드) 테스트                 |
