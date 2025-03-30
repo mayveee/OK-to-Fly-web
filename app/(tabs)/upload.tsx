@@ -1,7 +1,5 @@
-//  app/tabs/upload.tsx
-
 import React, { useState } from 'react';
-import { View, Button, Image, Text, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, Button, Image, Text, ActivityIndicator, ScrollView, TouchableOpacity } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import axios from 'axios';
 
@@ -18,12 +16,11 @@ export default function UploadScreen() {
     const [cautionItems2, setCautionItems2] = useState<string[]>([]);
     const [message1, setMessage1] = useState<string>('');
     const [message2, setMessage2] = useState<string>('');
-    
-    // 이미지 선택 기능
+
     const pickImage = async () => {
         const result = await ImagePicker.launchImageLibraryAsync({
-        base64: true,
-        quality: 0.5,
+            base64: true,
+            quality: 0.5,
         });
 
         if (!result.canceled) {
@@ -33,33 +30,31 @@ export default function UploadScreen() {
         }
     };
 
-    // 사진 촬영 기능
     const takePhoto = async () => {
         const permission = await ImagePicker.requestCameraPermissionsAsync();
         if (!permission.granted) {
             alert('카메라 접근 권한이 필요합니다!');
             return;
         }
-    
+
         const result = await ImagePicker.launchCameraAsync({
             base64: true,
             quality: 0.5,
         });
-    
+
         if (!result.canceled) {
             setImageUri(result.assets[0].uri);
             setBase64Data(result.assets[0].base64!);
             setLabels([]);
         }
     };
-  
-    // 이미지 서버로 보내기
+
     const analyzeImage = async () => {
         if (!base64Data) return;
         setLoading(true);
         try {
             const res = await axios.post('https://ok-to-fly-server.onrender.com/test-vision', {
-            image: base64Data,
+                image: base64Data,
             });
             const {
                 labels,
@@ -71,8 +66,8 @@ export default function UploadScreen() {
                 message1,
                 message2,
             } = res.data;
-            setLabels(res.data.labels);
-            setObjectNames(res.data.objectNames);
+            setLabels(labels);
+            setObjectNames(objectNames);
             setForbiddenItems1(forbiddenItems1);
             setCautionItems1(cautionItems1);
             setForbiddenItems2(forbiddenItems2);
@@ -87,58 +82,71 @@ export default function UploadScreen() {
     };
 
     return (
-        <View style={styles.container}>
-            <Button title="이미지 선택하기" onPress={pickImage} />
-            <Button title="사진 촬영하기" onPress={takePhoto} />
+        <ScrollView contentContainerStyle={{ paddingVertical:100, paddingHorizontal: 20, backgroundColor: '#f9fafb', alignItems: 'center' }}>
+            <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 20 }}>✈️ 기내 반입 물품 분석</Text>
+
+            <TouchableOpacity
+                onPress={pickImage}
+                style={{
+                    backgroundColor: '#e5e7eb',
+                    paddingVertical: 12,
+                    paddingHorizontal: 20,
+                    borderRadius: 999,
+                    marginBottom: 10,
+                }}
+            >
+                <Text style={{ fontWeight: '600' }}>🖼️ 이미지 선택하기</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+                onPress={takePhoto}
+                style={{
+                    backgroundColor: '#e5e7eb',
+                    paddingVertical: 12,
+                    paddingHorizontal: 20,
+                    borderRadius: 999,
+                    marginBottom: 20,
+                }}
+            >
+                <Text style={{ fontWeight: '600' }}>📷 사진 촬영하기</Text>
+            </TouchableOpacity>
 
             {imageUri && (
                 <>
-                <Image source={{ uri: imageUri }} style={styles.image} />
-                <Button title="분석 요청하기" onPress={analyzeImage} />
+                    <Image source={{ uri: imageUri }} style={{ width: 200, height: 200, borderRadius: 16, marginBottom: 20 }} />
+                    <TouchableOpacity
+                        onPress={analyzeImage}
+                        style={{
+                            backgroundColor: '#111827',
+                            paddingVertical: 12,
+                            paddingHorizontal: 20,
+                            borderRadius: 999,
+                        }}
+                    >
+                        <Text style={{ color: 'white', fontWeight: '600' }}>분석 요청하기</Text>
+                    </TouchableOpacity>
                 </>
             )}
-        
-            {loading && <ActivityIndicator style={{ marginTop: 20 }} />}
+
+            {loading && <ActivityIndicator style={{ marginTop: 30 }} size="large" color="#4B5563" />}
+
             {labels.length > 0 && (
-                <View style={styles.results}>
-                    <Text style={{ fontWeight: 'bold', marginBottom: 4 }}>🔹 Label 기반 분석 결과 (1)</Text>
-
-                    <Text>
-                        ❌ 금지 물품:{' '}
-                        {forbiddenItems1.length > 0 ? forbiddenItems1.join(', ') : '없음'}
-                    </Text>
-
-                    <Text>
-                        ⚠️ 주의 물품:{' '}
-                        {cautionItems1.length > 0 ? cautionItems1.join(', ') : '없음'}
-                    </Text>
-
+                <View style={{ marginTop: 30, width: '100%', backgroundColor: '#fff', padding: 20, borderRadius: 12 }}>
+                    <Text style={{ fontWeight: 'bold', fontSize: 16, marginBottom: 8 }}>🔹 Label 기반 분석 결과 (1)</Text>
+                    <Text>분석 결과: {labels.join(', ') || '없음'}</Text>
+                    <Text>❌ 금지 물품: {forbiddenItems1.join(', ') || '없음'}</Text>
+                    <Text>⚠️ 주의 물품: {cautionItems1.join(', ') || '없음'}</Text>
                     <Text style={{ marginTop: 4 }}>{message1}</Text>
 
                     <View style={{ height: 20 }} />
 
-                    {/* 🔸 Object 기반 결과 */}
-                    <Text style={{ fontWeight: 'bold', marginBottom: 4 }}>🔸 Object 기반 분석 결과 (2)</Text>
-
-                    <Text>
-                        ❌ 금지 물품:{' '}
-                        {forbiddenItems2.length > 0 ? forbiddenItems2.join(', ') : '없음'}
-                    </Text>
-
-                    <Text>
-                        ⚠️ 주의 물품:{' '}
-                        {cautionItems2.length > 0 ? cautionItems2.join(', ') : '없음'}
-                    </Text>
-
+                    <Text style={{ fontWeight: 'bold', fontSize: 16, marginBottom: 8 }}>🔸 Object 기반 분석 결과 (2)</Text>
+                    <Text>분석 결과: {objectNames.join(', ') || '없음'}</Text>
+                    <Text>❌ 금지 물품: {forbiddenItems2.join(', ') || '없음'}</Text>
+                    <Text>⚠️ 주의 물품: {cautionItems2.join(', ') || '없음'}</Text>
                     <Text style={{ marginTop: 4 }}>{message2}</Text>
                 </View>
             )}
-        </View>
+        </ScrollView>
     );
 }
-
-const styles = StyleSheet.create({
-    container: { flex: 1, padding: 20, justifyContent: 'center', alignItems: 'center' },
-    image: { width: 200, height: 200, marginVertical: 20 },
-    results: { marginTop: 20, alignItems: 'center' },
-});
