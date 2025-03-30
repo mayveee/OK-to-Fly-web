@@ -83,7 +83,7 @@ export default function UploadScreen() {
 
     return (
         <ScrollView contentContainerStyle={{ paddingVertical:100, paddingHorizontal: 20, backgroundColor: '#f9fafb', alignItems: 'center' }}>
-            <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 20 }}>✈️ 기내 반입 물품 분석</Text>
+            <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 20 }}>기내 반입 물품 분석</Text>
 
             <TouchableOpacity
                 onPress={pickImage}
