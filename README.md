@@ -4,6 +4,15 @@
 2. base64Image 형태로 이미지 전송
 3. 서버에서 라벨과 메시지 던져주면 출력
 
+### install package
+```
+npm install
+```
+### run dev
+```
+npx expo start
+```
+
 #### 스택
 
 | 분야             | 사용 기술                                     |
