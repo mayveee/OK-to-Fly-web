@@ -20,7 +20,7 @@ export default function UploadScreen() {
     const pickImage = async () => {
         const result = await ImagePicker.launchImageLibraryAsync({
             base64: true,
-            quality: 0.5,
+            quality: 0.9,
         });
 
         if (!result.canceled) {
@@ -39,7 +39,7 @@ export default function UploadScreen() {
 
         const result = await ImagePicker.launchCameraAsync({
             base64: true,
-            quality: 0.5,
+            quality: 0.9,
         });
 
         if (!result.canceled) {
