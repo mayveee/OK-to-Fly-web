@@ -4,13 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './i18n'; // i18n 설정 파일을 불러옵니다.
+import { DetectionProvider } from './context/DetectionContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <DetectionProvider>
+      <App />
+    </DetectionProvider>    
   </React.StrictMode>
 );
 
