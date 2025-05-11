@@ -35,9 +35,9 @@ const App = () => {
           </Routes>
 
           <nav className="bottom-tabbar">
-            <Link to="/">{t("Upload")}</Link>
-            <Link to="/regulations">{t("Homepages")}</Link>
-            <Link to="/settings">{t("Settings")}</Link>
+            <Link to="/">{t("업로드")}</Link>
+            <Link to="/regulations">{t("홈페이지")}</Link>
+            <Link to="/settings">{t("설정")}</Link>
           </nav>
         </div>
       </Router>

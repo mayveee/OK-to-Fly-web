@@ -10,7 +10,7 @@ export default function HelpCard({ title, description }: InfoCardProps) {
     return (
         <div className="help-topcard">
         <p className="help-title">{title}</p>
-        <p className='hlep-desc'> 
+        <p className='help-desc'> 
         {description.split('\n').map((line, idx) => (
           <span key={idx}>
             {line}
