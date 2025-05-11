@@ -27,7 +27,7 @@
 }
 
 .fileInput {
-    display: none; /* 기본 파일 input 숨기기 */
+    display: none;
 }
 
 .customFileBtn {

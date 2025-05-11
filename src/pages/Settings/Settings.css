@@ -1,0 +1,39 @@
+.container {
+    padding: 2rem;
+    max-width: 600px;
+    margin: auto;
+}
+
+.defaultAirport {
+    margin-bottom: 1.5rem;
+}
+
+.languageSetting {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.languageTitle {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.languageButton {
+  background-color: #f1f1f1;
+  padding: 6px 12px;
+  border-radius: 16px;
+  margin-right: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+.policySection {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+}

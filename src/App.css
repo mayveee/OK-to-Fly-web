@@ -1,25 +1,48 @@
-/* src/App.css */
+html, body, #root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    font-family: system-ui, sans-serif;
+    overflow-x: hidden;
+}
+
+.safe-area {
+    width: 100%;
+    overflow-x: hidden;
+}
+
 .app-container {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9fafb;
-  min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    padding-bottom: 56px;
+    box-sizing: border-box;
 }
 
-.navbar {
-  display: flex;
-  gap: 16px;
-  padding: 16px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #ddd;
+.bottom-tabbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 12px;
+    background-color: #ffffff;
+    border-top: 1px solid #ddd;
+    z-index: 1000;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.navbar a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: color 0.2s ease-in-out;
-}
-
-.navbar a:hover {
-  color: #007bff;
+.bottom-tabbar a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
 }

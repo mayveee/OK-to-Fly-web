@@ -1,7 +1,7 @@
 // src/pages/Feedback/Feedback.tsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./Feedback.module.css";
+import "./Feedback.css";
 
 const Feedback = () => {
     const [file, setFile] = useState<File | null>(null);  // 업로드된 파일을 상태로 관리
@@ -27,37 +27,37 @@ const Feedback = () => {
     };
 
     return (
-        <div className={styles.container}>
+        <div className='container'>
             <h2>Feedback & Report</h2>
-            <div className={styles.tags}>
+            <div className='styles.tags'>
                 <span>Incorrect Analysis Result</span>
                 <span>Regulation Information Error</span>
             </div>
             <textarea
-                className={styles.textarea}
+                className='styles.textarea'
                 placeholder="Describe the issue in detail"
             />
-            <div className={styles.uploadBox}>
+            <div className='uploadBox'>
                 {/* 숨겨진 file input */}
                 <input
                     type="file"
                     accept="image/*"
                     onChange={handleFileChange}
                     id="file-input"
-                    className={styles.fileInput}
+                    className='fileInput'
                 />
                 {/* 파일 업로드 버튼 */}
-                <label htmlFor="file-input" className={styles.customFileBtn}>
+                <label htmlFor="file-input" className='customFileBtn'>
                     Choose a file
                 </label>
-                {file && <span className={styles.fileName}>{file.name}</span>} {/* 업로드된 파일 이름 표시 */}
+                {file && <span className='fileName'>{file.name}</span>} {/* 업로드된 파일 이름 표시 */}
             </div>
-            <button className={styles.submitBtn} onClick={handleSubmit}>
+            <button className='submitBtn' onClick={handleSubmit}>
                 Submit
             </button>
 
             {/* 제출 완료 표시 */}
-            {isSubmitted && <div className={styles.submissionSuccess}>Submission Successful!</div>}
+            {isSubmitted && <div className='submissionSuccess'>Submission Successful!</div>}
         </div>
     );
 };
