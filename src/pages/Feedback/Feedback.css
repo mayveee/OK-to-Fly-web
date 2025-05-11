@@ -1,0 +1,100 @@
+.container {
+    padding: 20px;
+    max-width: 480px;
+    margin: 0 auto;
+    font-family: sans-serif;
+    background-color: #fff;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* 카테고리 태그 */
+.tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.tags span {
+    background-color: #f1f1f1;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* 텍스트 입력 */
+.textarea {
+  width: 100%;
+  height: 120px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  resize: none;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+/* 파일 업로드 */
+.uploadBox {
+    margin-bottom: 24px;
+}
+
+.attachBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    height: 120px;
+    width: 100%;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+.attachBox:hover {
+    background-color: #e5e5e5;
+}
+
+.fileInput {
+    display: none;
+}
+
+/* 제출 버튼 */
+.submitBtn {
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.submitBtn:hover {
+    opacity: 0.9;
+}
+
+.backButton {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    margin-bottom: 10px;
+}

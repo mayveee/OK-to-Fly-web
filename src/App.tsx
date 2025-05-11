@@ -3,9 +3,9 @@ import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next"; // 여기서 useTranslation 훅을 사용
 
-import Home from "./pages/Home/Home";
-import ScanResult from "./pages/ScanResult/ScanResult";
-import AirportInfo from "./pages/AirportInfo/AirportInfo";
+import Upload from "./pages/Upload/Upload";
+import Result from "./pages/Result/Result";
+import RegulationsLink from "./pages/RegulationsLink/RegulationsLink";
 import Feedback from "./pages/Feedback/Feedback";
 import Settings from "./pages/Settings/Settings";
 
@@ -25,22 +25,20 @@ const App = () => {
   return (
       <Router>
         <div className="app-container">
-          <nav className="navbar">
-            {/* 링크에도 t() 함수 사용 */}
-            <Link to="/">{t("Home")}</Link>
-            <Link to="/scan">{t("Scan Result")}</Link>
-            <Link to="/airport">{t("Airport Info")}</Link>
-            <Link to="/feedback">{t("Feedback")}</Link>
-            <Link to="/settings">{t("Settings")}</Link>
-          </nav>
-
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/scan" element={<ScanResult />} />
-            <Route path="/airport" element={<AirportInfo />} />
+            <Route path="/" element={<Upload />} />
+            <Route path="/result" element={<Result />} />
+            <Route path="/regulations" element={<RegulationsLink />} />
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/settings" element={<Settings />} />
+
           </Routes>
+
+          <nav className="bottom-tabbar">
+            <Link to="/">{t("업로드")}</Link>
+            <Link to="/regulations">{t("홈페이지")}</Link>
+            <Link to="/settings">{t("설정")}</Link>
+          </nav>
         </div>
       </Router>
   );
