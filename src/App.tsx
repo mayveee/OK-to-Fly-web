@@ -24,7 +24,6 @@ const App = () => {
 
   return (
       <Router>
-        <div className="app-container">
           <Routes>
             <Route path="/" element={<Upload />} />
             <Route path="/result" element={<Result />} />
@@ -33,13 +32,11 @@ const App = () => {
             <Route path="/settings" element={<Settings />} />
 
           </Routes>
-
           <nav className="bottom-tabbar">
             <Link to="/">{t("업로드")}</Link>
             <Link to="/regulations">{t("홈페이지")}</Link>
             <Link to="/settings">{t("설정")}</Link>
           </nav>
-        </div>
       </Router>
   );
 };

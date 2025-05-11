@@ -8,21 +8,6 @@ html, body, #root {
     overflow-x: hidden;
 }
 
-.safe-area {
-    width: 100%;
-    overflow-x: hidden;
-}
-
-.app-container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-    background-color: #fff;
-    padding-bottom: 56px;
-    box-sizing: border-box;
-}
-
 .bottom-tabbar {
     position: fixed;
     bottom: 0;
