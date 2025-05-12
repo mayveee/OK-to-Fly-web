@@ -1,9 +1,7 @@
 .container {
-    padding: 10px;
-    max-width: 480px;
-    margin: 0 auto;
-    font-family: sans-serif;
-    background-color: #fff;
+    padding: 16px;
+    max-width: 100%;
+    box-sizing: border-box;
     padding-bottom: 80px;
 }
 
