@@ -8,10 +8,6 @@ const Feedback = () => {
     const navigate = useNavigate();
 
     return (
-    <>
-        <button className="backButton" onClick={() => navigate(-1)}>
-            
-        </button>
         <div className="container">
             <h2 onClick={() => navigate(-1)}>&lt; Feedback & Report</h2>
             <HelpCard title="아직 지원되지 않는 기능입니다" description="곧 추가될 예정입니다"/>
@@ -41,7 +37,6 @@ const Feedback = () => {
                 Submit
             </button>
         </div>
-    </>
     );
 };
 

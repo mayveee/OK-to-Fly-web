@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Result.css';
 import { useResult } from '../../context/ResultContext';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 export default function Result() {
   const { result } = useResult();
@@ -9,7 +10,7 @@ export default function Result() {
   const hasDangerousItems = detectedItems.length > 0;
   const { t } = useTranslation();
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-
+  const navigate = useNavigate();
   const toggleExpand = (index: number) => {
     setExpandedIndex(index === expandedIndex ? null : index);
   };
@@ -31,8 +32,7 @@ export default function Result() {
 
   return (
     <div className="result-scroll-container">
-      <div className="result-container">
-        <h2 className="result-header">{t('AI 분석 결과')}</h2>
+        <h2 className="result-header"onClick={() => navigate(-1)}>&lt; {t('AI 분석 결과')}</h2>
 
         <div className="result-image-box">
           {imageUri ? (
@@ -100,7 +100,6 @@ export default function Result() {
             {t('반입 금지 물품이 없습니다 ✅')}
           </p>
         )}
-      </div>
     </div>
   );
 }
