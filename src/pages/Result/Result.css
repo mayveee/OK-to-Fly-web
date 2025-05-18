@@ -2,10 +2,13 @@
   padding: 20px;
   background-color: white;
   min-height: 100vh;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .result-header {
+  margin-top: 5px;
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 20px;
@@ -33,10 +36,12 @@
 }
 
 .result-item-card {
-  padding: 14px;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
   border: 1px solid #ddd;
   border-radius: 10px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   background-color: #f9f9f9;
   cursor: pointer;
 }
@@ -49,33 +54,56 @@
 
 .result-item-name {
   font-size: 18px;
-  font-weight: 600;
-  color: #111;
+  font-weight: 800;
+  color: #1a1a1a;
 }
 
 .result-rule-flags {
   text-align: right;
 }
 
+.flag {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 2px 0;
+}
+
+.flag.allowed {
+  color: #10b981;
+}
+
+.flag.forbidden {
+  color: #ef4444;
+}
+
+.result-description-block {
+  margin-bottom: 3px;
+}
+
+.description-tag {
+  font-size: 15px;
+  font-weight: 600;
+}
+
 .result-description-box {
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .result-description {
   margin-top: 4px;
   font-size: 14px;
   color: #555;
-  line-height: 20px;
+  line-height: 15px;
 }
 
 .result-summary-wrapper {
   text-align: right;
-  margin-top: 6px;
+  margin-top: 3px;
 }
 
 .result-summary {
   font-size: 13px;
   color: #888;
   font-style: italic;
-  margin-top: 8px;
+  margin-top: 3px;
 }

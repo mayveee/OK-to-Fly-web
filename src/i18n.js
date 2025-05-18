@@ -53,9 +53,10 @@ const resources = {
             "관련 예외 {{count}}": "{{count}} related exceptions",
             "관련 특별 {{count}}": "{{count}} special notes",
             "반입 금지 물품이 없습니다 ✅": "No prohibited items detected ✅",
-            "업로드": "UPLOAD",
-            "홈페이지": "HOMEPAGES",
-            "설정": "SETTINGS",
+            "업로드": "Upload",
+            "홈페이지": "Homepages",
+            "설정": "Settings",
+            "더보기": "show more"
         }
     },
     ko: {
@@ -110,6 +111,7 @@ const resources = {
             "업로드": "업로드",
             "홈페이지": "홈페이지",
             "설정": "설정",
+            "더보기": "더보기",
         }
     },
 };

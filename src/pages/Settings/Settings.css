@@ -1,21 +1,11 @@
 .container {
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
     margin: 0 auto;
-    padding: 10px;
+    padding: 15px;
     box-sizing: border-box;
-    padding-bottom: 80px;
-}
-
-.languageSetting {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.languageTitle {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    font-weight: 600;
+    padding-bottom: 50px;
+    background-color: #fff;
 }
 
 .languageButton {
@@ -25,20 +15,23 @@
     margin-right: 8px;
     margin-bottom: 20px;
     font-size: 14px;
-    border: none;
+    border: 1px #919191;
     cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 .policySection {
     background: #f9f9f9;
-    padding: 1rem;
+    padding: 10px;
     border-radius: 10px;
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
     border: 1px solid #ddd;
 }
 
 .settings-title {
-    font-size: 20px;
-    font-weight: bold;
+    font-family: inherit;
+    margin-top: 10px;
+    font-size: 25px;
+    font-weight: 600;
     margin-bottom: 16px;
 }
 
@@ -49,15 +42,15 @@
 }
 
 .settings-section-title {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 }
 
 .settings-section-text {
     font-size: 14px;
     color: #555;
-    margin: 0 0 16px;
+    margin: 0 0 10px;
 }
 
 .languageButton.selected {
