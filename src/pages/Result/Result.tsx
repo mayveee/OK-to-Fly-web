@@ -11,7 +11,7 @@ export default function Result() {
   const { t } = useTranslation();
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const navigate = useNavigate();
-  
+
   const toggleExpand = (index: number) => {
     setExpandedIndex(index === expandedIndex ? null : index);
   };
