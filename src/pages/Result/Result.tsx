@@ -55,12 +55,22 @@ export default function Result() {
               <div className="result-item-header">
                 <p className="result-item-name">{item.name}</p>
                 <div className="result-rule-flags">
-                  <p className={ item.rule.allowed_in_cabin ? 'flag allowed' : 'flag forbidden' }>
-                    {item.rule.allowed_in_cabin ? t('✅ 기내 반입 가능') : t('❌ 기내 반입 금지')}
-                  </p>
-                  <p className={ item.rule.allowed_in_checked ? 'flag allowed' : 'flag forbidden' }>
-                    {item.rule.allowed_in_checked ? t('✅ 위탁수하물 가능') : t('❌ 위탁수하물 금지')}
-                  </p>
+                  {
+                    (item.rule.allowed_in_cabin == null || item.rule.allowed_in_checked == null) ? (
+                      <p className="flag unknown">
+                        {t('❓ 특수 규정 확인 필요')}
+                      </p>
+                    ) : (
+                      <>
+                        <p className={item.rule.allowed_in_cabin ? 'flag allowed' : 'flag forbidden'}>
+                          {item.rule.allowed_in_cabin ? t('✅ 기내 반입 가능') : t('❌ 기내 반입 금지')}
+                        </p>
+                        <p className={item.rule.allowed_in_checked ? 'flag allowed' : 'flag forbidden'}>
+                          {item.rule.allowed_in_checked ? t('✅ 위탁수하물 가능') : t('❌ 위탁수하물 금지')}
+                        </p>
+                      </>
+                    )
+                  }
                 </div>
               </div>
 
