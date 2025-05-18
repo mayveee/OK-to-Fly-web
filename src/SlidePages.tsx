@@ -12,7 +12,6 @@ export default function SlidePages() {
     const { t } = useTranslation();
     const location = useLocation();
     const sliderRef = useRef<HTMLDivElement>(null);
-    console.log('location.state', location.state);
     
     const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
         const scrollLeft = e.currentTarget.scrollLeft;

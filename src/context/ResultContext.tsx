@@ -5,8 +5,8 @@ export type DetectedItem = {
   name: string;
   description: string;
   rule: {
-    allowed_in_cabin: boolean;
-    allowed_in_checked: boolean;
+    allowed_in_cabin: boolean | null;
+    allowed_in_checked: boolean | null;
   };
 };
 
