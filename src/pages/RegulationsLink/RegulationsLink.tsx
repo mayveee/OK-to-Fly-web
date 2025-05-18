@@ -8,7 +8,7 @@ export default function RegulationsLink() {
 
     return (
         <div className="regulations-container">
-        <h1 className="regulations-header">{t('항공사 공식 사이트 바로가기')}</h1>
+        <p className="regulations-header">{t('항공사 공식 사이트 바로가기')}</p>
 
         <HelpCard
             title={t('공식 사이트에서 더 많은 규정을 확인 할 수 있어요')}

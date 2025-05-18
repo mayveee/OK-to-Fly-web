@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Result.css';
 import { useResult } from '../../context/ResultContext';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 export default function Result() {
   const { result } = useResult();
@@ -9,7 +10,8 @@ export default function Result() {
   const hasDangerousItems = detectedItems.length > 0;
   const { t } = useTranslation();
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-
+  const navigate = useNavigate();
+  
   const toggleExpand = (index: number) => {
     setExpandedIndex(index === expandedIndex ? null : index);
   };
@@ -31,8 +33,7 @@ export default function Result() {
 
   return (
     <div className="result-scroll-container">
-      <div className="result-container">
-        <h2 className="result-header">{t('AI 분석 결과')}</h2>
+        <p className="result-header" onClick={() => navigate(-1)}>&lt; {t('AI 분석 결과')}</p>
 
         <div className="result-image-box">
           {imageUri ? (
@@ -54,10 +55,10 @@ export default function Result() {
               <div className="result-item-header">
                 <p className="result-item-name">{item.name}</p>
                 <div className="result-rule-flags">
-                  <p style={{ color: item.rule.allowed_in_cabin ? '#10b981' : '#ef4444' }}>
+                  <p className={ item.rule.allowed_in_cabin ? 'flag allowed' : 'flag forbidden' }>
                     {item.rule.allowed_in_cabin ? t('✅ 기내 반입 가능') : t('❌ 기내 반입 금지')}
                   </p>
-                  <p style={{ color: item.rule.allowed_in_checked ? '#10b981' : '#ef4444' }}>
+                  <p className={ item.rule.allowed_in_checked ? 'flag allowed' : 'flag forbidden' }>
                     {item.rule.allowed_in_checked ? t('✅ 위탁수하물 가능') : t('❌ 위탁수하물 금지')}
                   </p>
                 </div>
@@ -66,8 +67,8 @@ export default function Result() {
               {expandedIndex === index ? (
                 <div className="result-description-box">
                   {parseDescription(item.description).map((entry, i) => (
-                    <div key={i} style={{ marginBottom: 6 }}>
-                      <p style={{ fontWeight: '600' }}>
+                    <div key={i} className="result-description-block">
+                      <p className="description-tag">
                         {entry.tag === '규정' && t('📝 규정')}
                         {entry.tag === '예외' && t('⚠️ 예외')}
                         {entry.tag === '특별' && t('📌 특별')}
@@ -90,6 +91,8 @@ export default function Result() {
                       if (counts.특별 > 0) parts.push('관련 특별 {{count}}', { count: counts.특별 });
                       return parts.join(', ');
                     })()}
+                    {' '}
+                    {t('확인')}
                   </p>
                 </div>
               )}
@@ -100,7 +103,6 @@ export default function Result() {
             {t('반입 금지 물품이 없습니다 ✅')}
           </p>
         )}
-      </div>
     </div>
   );
 }
