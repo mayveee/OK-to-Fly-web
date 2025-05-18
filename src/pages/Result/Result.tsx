@@ -33,7 +33,7 @@ export default function Result() {
 
   return (
     <div className="result-scroll-container">
-        <p className="result-header" onClick={() => navigate(-1)}>&lt; {t('AI 분석 결과')}</p>
+        <p className="result-header" onClick={() => navigate('/', {state: { index: 0 }})}>&lt; {t('AI 분석 결과')}</p>
 
         <div className="result-image-box">
           {imageUri ? (
